@@ -11,6 +11,7 @@ const initialValue = {
 
 function Form({ handleChange }) {
   const [formData, setFormData] = useState(initialValue)
+  const [newFood, setNewFood] = useState([])
 
   const date = formData.date
   const breakfast = formData.breakfast
@@ -31,19 +32,38 @@ function Form({ handleChange }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(query)
-    console.log(date)
 
-    // fetch("https://api.calorieninjas.com/v1/nutrition?query=" + query, {
-    //   method: "GET",
-    //   headers: {
-    //     "X-Api-Key": "jrQyEj+ffbtZSdfVrr8HJQ==V3J3FdNbQrPL65DI",
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data))
+    fetch("https://api.calorieninjas.com/v1/nutrition?query=" + query, {
+      method: "GET",
+      headers: {
+        "X-Api-Key": "jrQyEj+ffbtZSdfVrr8HJQ==V3J3FdNbQrPL65DI",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setNewFood(data))
+      .then(handlePost)
   }
+
+  function handlePost() {
+    const food = [breakfast, lunch, dinner]
+    const mealData = {
+      date: formData.date,
+      food: food,
+      image: formData.image,
+    }
+    fetch("http://localhost:3000/meals", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mealData),
+    })
+    // .then(onAddListing)
+    // .then(resetForm)
+  }
+
+  console.log(newFood.items)
 
   return (
     <form onSubmit={handleSubmit} className="container mt-4">

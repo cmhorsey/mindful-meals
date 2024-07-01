@@ -1,8 +1,8 @@
 function LogEntry({ meal }) {
-  const { food, calories, carbs } = meal
+  const { food, calories, carbs, date } = meal
   return (
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{date}</th>
       <td>
         Breakfast : {food[0]}
         <br></br>
