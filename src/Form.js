@@ -23,7 +23,16 @@ function Form({ handleChange }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(query)
+
+    fetch("https://api.calorieninjas.com/v1/nutrition?query=" + query, {
+      method: "GET",
+      headers: {
+        "X-Api-Key": "jrQyEj+ffbtZSdfVrr8HJQ==V3J3FdNbQrPL65DI",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
   }
 
   return (
