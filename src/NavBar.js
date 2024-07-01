@@ -8,10 +8,6 @@ const NavBar = () => {
       <button
         className="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon"></span>
@@ -30,7 +26,7 @@ const NavBar = () => {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/fast-tracker">
-              ⏳|Fast Log
+              ⏳|Fast Tracker
             </Link>
           </li>
         </ul>
