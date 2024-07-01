@@ -1,4 +1,5 @@
 import NavBar from "./NavBar"
+import Form from "./Form"
 
 function FoodLog() {
   return (
@@ -6,9 +7,10 @@ function FoodLog() {
       <header>
         <NavBar />
       </header>
-      <main className="container">
-        <h1>This is my food log!</h1>
-      </main>
+      <div className="container">
+        <h1>Food Log</h1>
+        <Form />
+      </div>
     </>
   )
 }
