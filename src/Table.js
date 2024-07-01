@@ -1,4 +1,3 @@
-import { all } from "q"
 import LogEntry from "./LogEntry"
 
 function Table({ allMeals }) {

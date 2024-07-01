@@ -9,7 +9,7 @@ const initialValue = {
   dinner: "",
 }
 
-function Form({ handleChange }) {
+function Form({ handleChange, fetchTrigger }) {
   const [formData, setFormData] = useState(initialValue)
   const [newFood, setNewFood] = useState([])
 
@@ -58,12 +58,9 @@ function Form({ handleChange }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(mealData),
-    })
-    // .then(onAddListing)
+    }).then(fetchTrigger)
     // .then(resetForm)
   }
-
-  console.log(newFood.items)
 
   return (
     <form onSubmit={handleSubmit} className="container mt-4">
