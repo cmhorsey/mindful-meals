@@ -30,7 +30,7 @@ const NavBar = () => {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/fast-tracker">
-              ⏳|Fast Log
+              ⏳|Fast Tracker
             </Link>
           </li>
         </ul>

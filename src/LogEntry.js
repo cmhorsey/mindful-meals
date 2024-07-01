@@ -3,9 +3,19 @@ function LogEntry({ meal }) {
   return (
     <tr>
       <th scope="row">1</th>
-      <td>{food}</td>
-      <td>{calories}</td>
-      <td>{carbs}</td>
+      <td>
+        Breakfast : {food[0]}
+        <br></br>
+        Lunch : {food[1]}
+        <br></br>
+        Dinner : {food[2]}
+      </td>
+      <td>
+        Calories: {calories}
+        <br></br>
+        Carbs: {carbs}
+      </td>
+      <td></td>
     </tr>
   )
 }
