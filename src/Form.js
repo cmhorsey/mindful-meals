@@ -65,8 +65,8 @@ function Form({ fetchTrigger }) {
     const mealData = {
       date: formData.date.toLocaleDateString(),
       food: [breakfast, lunch, dinner],
-      calories: totalCalories,
-      carbs: totalCarbs,
+      calories: Math.floor(totalCalories * 4),
+      carbs: totalCarbs * 4,
     }
 
     fetch("http://localhost:3000/meals", {
