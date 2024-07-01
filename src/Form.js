@@ -1,6 +1,33 @@
-function Form() {
+import React, { useState } from "react"
+
+const initialValue = {
+  breakfast: "",
+  lunch: "",
+  dinner: "",
+}
+
+function Form({ handleChange }) {
+  const [formData, setFormData] = useState(initialValue)
+
+  const breakfast = formData.breakfast
+  const lunch = formData.lunch
+  const dinner = formData.dinner
+  const query = `${breakfast} ${lunch} ${dinner}`
+
+  function handleChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    console.log(query)
+  }
+
   return (
-    <form className="container mt-4">
+    <form onSubmit={handleSubmit} className="container mt-4">
       <div className="mb-3">
         <label htmlFor="breakfast" className="form-label">
           Breakfast
@@ -10,8 +37,8 @@ function Form() {
           className="form-control"
           id="breakfast"
           name="breakfast"
-          // value={formData.breakfast}
-          // onChange={handleChange}
+          value={formData.breakfast}
+          onChange={handleChange}
         />
       </div>
       <div className="mb-3">
@@ -23,8 +50,8 @@ function Form() {
           className="form-control"
           id="lunch"
           name="lunch"
-          // value={formData.lunch}
-          // onChange={handleChange}
+          value={formData.lunch}
+          onChange={handleChange}
         />
       </div>
 
@@ -37,8 +64,8 @@ function Form() {
           className="form-control"
           id="dinner"
           name="dinner"
-          // value={formData.dinner}
-          // onChange={handleChange}
+          value={formData.dinner}
+          onChange={handleChange}
         />
       </div>
       <button type="submit" className="btn btn-primary">
