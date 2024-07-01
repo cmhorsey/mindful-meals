@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
+import "./index.css"
 
 const initialValue = {
   date: new Date(),
@@ -79,7 +80,8 @@ function Form({ fetchTrigger }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="container mt-4">
+    <form onSubmit={handleSubmit} className="container form-container">
+      <h2 className="form-header">Meal Tracker</h2>
       <div className="mb-3">
         <label htmlFor="date" className="form-label">
           Date
@@ -102,6 +104,7 @@ function Form({ fetchTrigger }) {
           name="breakfast"
           value={formData.breakfast}
           onChange={handleChange}
+          placeholder="What did you have for breakfast?"
         />
       </div>
       <div className="mb-3">
@@ -115,9 +118,9 @@ function Form({ fetchTrigger }) {
           name="lunch"
           value={formData.lunch}
           onChange={handleChange}
+          placeholder="What did you have for lunch?"
         />
       </div>
-
       <div className="mb-3">
         <label htmlFor="dinner" className="form-label">
           Dinner
@@ -129,9 +132,10 @@ function Form({ fetchTrigger }) {
           name="dinner"
           value={formData.dinner}
           onChange={handleChange}
+          placeholder="What did you have for dinner?"
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className=" btn btn-secondary btn-submit">
         Submit
       </button>
     </form>
