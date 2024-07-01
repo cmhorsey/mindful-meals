@@ -9,7 +9,7 @@ const initialValue = {
   dinner: "",
 }
 
-function Form({ handleChange, fetchTrigger }) {
+function Form({ fetchTrigger }) {
   const [formData, setFormData] = useState(initialValue)
   const [newFood, setNewFood] = useState([])
 
@@ -41,17 +41,34 @@ function Form({ handleChange, fetchTrigger }) {
       },
     })
       .then((response) => response.json())
-      .then((data) => setNewFood(data))
-      .then(handlePost)
+      .then((data) => {
+        const extractedData = data.items.map((item) => ({
+          name: item.name,
+          calories: item.calories,
+          carbohydrates: item.carbohydrates_total_g,
+        }))
+        setNewFood(extractedData)
+        handlePost(extractedData)
+      })
   }
 
-  function handlePost() {
-    const food = [breakfast, lunch, dinner]
+  function handlePost(extractedData) {
+    const totalCalories = extractedData.reduce(
+      (sum, item) => sum + item.calories,
+      0
+    )
+    const totalCarbs = extractedData.reduce(
+      (sum, item) => sum + item.carbohydrates,
+      0
+    )
+
     const mealData = {
-      date: formData.date,
-      food: food,
-      image: formData.image,
+      date: formData.date.toLocaleDateString(),
+      food: [breakfast, lunch, dinner],
+      calories: totalCalories,
+      carbs: totalCarbs,
     }
+
     fetch("http://localhost:3000/meals", {
       method: "POST",
       headers: {
@@ -59,7 +76,6 @@ function Form({ handleChange, fetchTrigger }) {
       },
       body: JSON.stringify(mealData),
     }).then(fetchTrigger)
-    // .then(resetForm)
   }
 
   return (
