@@ -4,6 +4,7 @@ import Message from "./Message"
 function Timer() {
   const [seconds, setSeconds] = useState(0)
   const [timerID, setTimerID] = useState(null)
+  const [message, setMessage] = useState("")
 
   const tick = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
@@ -43,7 +44,12 @@ function Timer() {
       <div className="mb-3 p-2">
         <button onClick={handleStopTimer}>End Fast</button>
       </div>
-      <Message seconds={seconds} handleStopTimer={handleStopTimer} />
+      <Message
+        seconds={seconds}
+        handleStopTimer={handleStopTimer}
+        message={message}
+        setMessage={setMessage}
+      />
     </div>
   )
 }
