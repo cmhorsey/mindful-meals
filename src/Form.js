@@ -126,7 +126,7 @@ function Form({ fetchMeals }) {
           placeholder="What did you have for dinner?"
         />
       </div>
-      <button type="submit" className=" btn btn-secondary btn-submit">
+      <button type="submit" className="btn btn-secondary btn-submit">
         Submit
       </button>
     </form>
