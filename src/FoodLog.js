@@ -22,7 +22,7 @@ function FoodLog() {
         <NavBar />
       </header>
       <div className="container">
-        <h1>Food Log</h1>
+        <h1>Meal Log</h1>
         <Form fetchTrigger={toggleFetchTrigger} />
         <br></br>
         <Table allMeals={allMeals} />

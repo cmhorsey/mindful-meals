@@ -14,7 +14,6 @@ function Form({ fetchTrigger }) {
   const [formData, setFormData] = useState(initialValue)
   const [newFood, setNewFood] = useState([])
 
-  const date = formData.date
   const breakfast = formData.breakfast
   const lunch = formData.lunch
   const dinner = formData.dinner
@@ -81,7 +80,7 @@ function Form({ fetchTrigger }) {
 
   return (
     <form onSubmit={handleSubmit} className="container form-container">
-      <h2 className="form-header">Meal Tracker</h2>
+      <h2 className="form-header">Add Meals</h2>
       <div className="mb-3">
         <label htmlFor="date" className="form-label">
           Date
