@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
+import Message from "./Message"
 
-const Timer = () => {
+function Timer() {
   const [seconds, setSeconds] = useState(0)
   const [timerID, setTimerID] = useState(null)
 
@@ -8,7 +9,14 @@ const Timer = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
   }
 
-  const handleStartTimer = () => {
+  // const handleStartTimer = () => {
+  //   if (!timerID) {
+  //     const id = setInterval(tick, 1000)
+  //     setTimerID(id)
+  //   }
+  // }
+
+  function handleStartTimer() {
     if (!timerID) {
       const id = setInterval(tick, 1000)
       setTimerID(id)
@@ -32,11 +40,27 @@ const Timer = () => {
       .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
   }
 
+  //Write conditional statements to render on page for each metabolic phase
+
+  function handleTimerPhase() {
+    if (seconds === 3) {
+      console.log("test")
+    } else if (seconds === 5) {
+      console.log("test1")
+    }
+  }
+
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       <h1>{formatTime(seconds)}</h1>
-      <button onClick={handleStartTimer}>Start Fast</button>
-      <button onClick={handleStopTimer}>End Fast</button>
+      <div className="mb-3 p-2">
+        <button onClick={handleStartTimer}>Start Fast</button>
+      </div>
+
+      <div className="mb-3 p-2">
+        <button onClick={handleStopTimer}>End Fast</button>
+      </div>
+      <Message />
     </div>
   )
 }
