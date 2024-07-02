@@ -19,6 +19,7 @@ const Timer = () => {
     if (timerID) {
       clearInterval(timerID)
       setTimerID(null)
+      setSeconds(0)
     }
   }
 
@@ -34,8 +35,8 @@ const Timer = () => {
   return (
     <div>
       <h1>{formatTime(seconds)}</h1>
-      <button onClick={handleStartTimer}>Start Timer</button>
-      <button onClick={handleStopTimer}>Stop Timer</button>
+      <button onClick={handleStartTimer}>Start Fast</button>
+      <button onClick={handleStopTimer}>End Fast</button>
     </div>
   )
 }
