@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Message from "./Message"
 import TimeCreator from "./TimerCreator"
+import DigestionSummary from "./DigestionSummary"
 
 function Timer() {
   const [seconds, setSeconds] = useState(0)
@@ -32,6 +33,7 @@ function Timer() {
         message={message}
         setMessage={setMessage}
       />
+      <DigestionSummary />
     </div>
   )
 }
