@@ -1,4 +1,10 @@
-function TimeCreator({ seconds, setSeconds, timerID, setTimerID, setMessage }) {
+function TimeCreator({
+  seconds,
+  setSeconds,
+  timerID,
+  setTimerID,
+  handleStopTimer,
+}) {
   const tick = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
   }
@@ -7,15 +13,6 @@ function TimeCreator({ seconds, setSeconds, timerID, setTimerID, setMessage }) {
     if (!timerID) {
       const id = setInterval(tick, 1000)
       setTimerID(id)
-    }
-  }
-
-  const handleStopTimer = () => {
-    if (timerID) {
-      clearInterval(timerID)
-      setTimerID(null)
-      setSeconds(0)
-      setMessage("")
     }
   }
 

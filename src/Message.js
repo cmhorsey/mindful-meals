@@ -17,7 +17,6 @@ function Message({ seconds, handleStopTimer, message, setMessage }) {
       } else if (seconds >= 15 && seconds < 20) {
         setMessage(" Phase 4 - Fat-Burning Phase ")
       } else if (seconds === 20) {
-        setMessage(" Fast Complete ")
         handleStopTimer()
       }
     }

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import CustomDatePicker from "./CustomDatePicker"
 import "./index.css"
 
 const initialValue = {
@@ -81,17 +80,10 @@ function Form({ fetchMeals }) {
   return (
     <form onSubmit={handleSubmit} className="container form-container">
       <h2 className="form-header">Add Meals</h2>
-      <div className="mb-3">
-        <label htmlFor="date" className="form-label">
-          Date
-        </label>
-        <DatePicker
-          selected={formData.date}
-          onChange={handleDateChange}
-          className="form-control"
-          dateFormat="MM/dd/yyyy"
-        />
-      </div>
+      <CustomDatePicker
+        selectedDate={formData.date}
+        handleDateChange={handleDateChange}
+      />
       <div className="mb-3">
         <label htmlFor="breakfast" className="form-label">
           Breakfast

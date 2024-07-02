@@ -12,7 +12,7 @@ function Timer() {
       clearInterval(timerID)
       setTimerID(null)
       setSeconds(0)
-      setMessage("")
+      setMessage("Fast Complete")
     }
   }
 
@@ -24,6 +24,7 @@ function Timer() {
         timerID={timerID}
         setTimerID={setTimerID}
         setMessage={setMessage}
+        handleStopTimer={handleStopTimer}
       />
       <Message
         seconds={seconds}
