@@ -9,13 +9,13 @@ function Message({ seconds, handleStopTimer, message, setMessage }) {
   useEffect(() => {
     function handleTimerPhase() {
       if (seconds >= 1 && seconds < 5) {
-        setMessage(" Phase 1 - Postprandial Phase ")
+        setMessage(" You are currently in Phase 1 ")
       } else if (seconds >= 5 && seconds < 10) {
-        setMessage(" Phase 2 - Early Fasting Phase ")
+        setMessage(" You are currently in Phase 2 ")
       } else if (seconds >= 10 && seconds < 15) {
-        setMessage(" Phase 3 - Glycogen Utilization Phase ")
+        setMessage(" You are currently in Phase 3 ")
       } else if (seconds >= 15 && seconds < 20) {
-        setMessage(" Phase 4 - Fat-Burning Phase ")
+        setMessage(" You are currently in Phase 4 ")
       } else if (seconds === 20) {
         handleStopTimer()
       }
