@@ -4,6 +4,7 @@ import Message from "./Message"
 function Timer() {
   const [seconds, setSeconds] = useState(0)
   const [timerID, setTimerID] = useState(null)
+  const [message, setMessage] = useState("")
 
   const tick = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
@@ -40,15 +41,19 @@ function Timer() {
       .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
   }
 
-  //Write conditional statements to render on page for each metabolic phase
-
-  function handleTimerPhase() {
-    if (seconds === 3) {
-      console.log("test")
-    } else if (seconds === 5) {
-      console.log("test1")
+  useEffect(() => {
+    function handleTimerPhase() {
+      if (seconds === 3) {
+        setMessage("test")
+      } else if (seconds === 5) {
+        setMessage("Fast Complete")
+        handleStopTimer()
+      }
     }
-  }
+    handleTimerPhase()
+  }, [seconds])
+
+  //Write conditional statements to render on page for each metabolic phase
 
   return (
     <div className="d-flex justify-content-center">
@@ -60,7 +65,8 @@ function Timer() {
       <div className="mb-3 p-2">
         <button onClick={handleStopTimer}>End Fast</button>
       </div>
-      <Message />
+      {/* <Message seconds={seconds} handleStopTimer={handleStopTimer} /> */}
+      {message}
     </div>
   )
 }
