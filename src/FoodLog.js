@@ -6,15 +6,16 @@ import Table from "./Table"
 
 function FoodLog() {
   const [allMeals, setAllMeals] = useState([])
-  const [fetchTrigger, setFetchTrigger] = useState(false)
 
-  const toggleFetchTrigger = () => setFetchTrigger(!fetchTrigger)
-
-  useEffect(() => {
+  const fetchMeals = () => {
     fetch("http://localhost:3000/meals")
       .then((response) => response.json())
       .then((data) => setAllMeals(data))
-  }, [fetchTrigger])
+  }
+
+  useEffect(() => {
+    fetchMeals()
+  }, [])
 
   return (
     <>
@@ -23,7 +24,7 @@ function FoodLog() {
       </header>
       <div className="container">
         <h1>Meal Log</h1>
-        <Form fetchTrigger={toggleFetchTrigger} />
+        <Form fetchMeals={fetchMeals} />
         <br></br>
         <Table allMeals={allMeals} />
       </div>

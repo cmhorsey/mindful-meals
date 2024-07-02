@@ -10,7 +10,7 @@ const initialValue = {
   dinner: "",
 }
 
-function Form({ fetchTrigger }) {
+function Form({ fetchMeals }) {
   const [formData, setFormData] = useState(initialValue)
   const [newFood, setNewFood] = useState([])
 
@@ -75,7 +75,7 @@ function Form({ fetchTrigger }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(mealData),
-    }).then(fetchTrigger)
+    }).then(fetchMeals)
   }
 
   return (

@@ -25,7 +25,7 @@ function Timer() {
     }
   }
 
-  const formatTime = (seconds) => {
+  const formatTime = () => {
     const hrs = Math.floor(seconds / 3600)
     const mins = Math.floor((seconds % 3600) / 60)
     const secs = seconds % 60
@@ -36,7 +36,7 @@ function Timer() {
 
   return (
     <div className="d-flex justify-content-center">
-      <h1>{formatTime(seconds)}</h1>
+      <h1>{formatTime()}</h1>
       <div className="mb-3 p-2">
         <button onClick={handleStartTimer}>Start Fast</button>
       </div>
