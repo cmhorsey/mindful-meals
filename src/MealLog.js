@@ -4,7 +4,7 @@ import Form from "./Form"
 import React, { useState, useEffect } from "react"
 import Table from "./Table"
 
-function FoodLog() {
+function MealLog() {
   const [allMeals, setAllMeals] = useState([])
 
   const fetchMeals = () => {
@@ -32,4 +32,4 @@ function FoodLog() {
   )
 }
 
-export default FoodLog
+export default MealLog
