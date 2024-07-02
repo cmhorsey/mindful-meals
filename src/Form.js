@@ -66,7 +66,7 @@ function Form({ fetchMeals }) {
       date: formData.date.toLocaleDateString(),
       food: [breakfast, lunch, dinner],
       calories: Math.floor(totalCalories * 4),
-      carbs: totalCarbs * 4,
+      carbs: Math.floor(totalCarbs * 4),
     }
 
     fetch("http://localhost:3000/meals", {
