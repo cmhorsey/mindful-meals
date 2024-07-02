@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import CustomDatePicker from "./CustomDatePicker"
 import "./index.css"
 
 const initialValue = {
@@ -10,11 +9,10 @@ const initialValue = {
   dinner: "",
 }
 
-function Form({ fetchTrigger }) {
+function Form({ fetchMeals }) {
   const [formData, setFormData] = useState(initialValue)
   const [newFood, setNewFood] = useState([])
 
-  const date = formData.date
   const breakfast = formData.breakfast
   const lunch = formData.lunch
   const dinner = formData.dinner
@@ -67,7 +65,7 @@ function Form({ fetchTrigger }) {
       date: formData.date.toLocaleDateString(),
       food: [breakfast, lunch, dinner],
       calories: Math.floor(totalCalories * 4),
-      carbs: totalCarbs * 4,
+      carbs: Math.floor(totalCarbs * 4),
     }
 
     fetch("http://localhost:3000/meals", {
@@ -76,23 +74,16 @@ function Form({ fetchTrigger }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(mealData),
-    }).then(fetchTrigger)
+    }).then(fetchMeals)
   }
 
   return (
     <form onSubmit={handleSubmit} className="container form-container">
-      <h2 className="form-header">Meal Tracker</h2>
-      <div className="mb-3">
-        <label htmlFor="date" className="form-label">
-          Date
-        </label>
-        <DatePicker
-          selected={formData.date}
-          onChange={handleDateChange}
-          className="form-control"
-          dateFormat="MM/dd/yyyy"
-        />
-      </div>
+      <h2 className="form-header">Add Meals</h2>
+      <CustomDatePicker
+        selectedDate={formData.date}
+        handleDateChange={handleDateChange}
+      />
       <div className="mb-3">
         <label htmlFor="breakfast" className="form-label">
           Breakfast
@@ -135,7 +126,7 @@ function Form({ fetchTrigger }) {
           placeholder="What did you have for dinner?"
         />
       </div>
-      <button type="submit" className=" btn btn-secondary btn-submit">
+      <button type="submit" className="btn btn-secondary btn-submit">
         Submit
       </button>
     </form>

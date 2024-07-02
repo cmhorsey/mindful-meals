@@ -1,4 +1,5 @@
 import NavBar from "./NavBar"
+import Timer from "./Timer"
 
 function FastTracker() {
   return (
@@ -7,7 +8,10 @@ function FastTracker() {
         <NavBar />
       </header>
       <main className="container">
-        <h1>This is my fast tracker!</h1>
+        <h1 className="form-header">Fast Tracker</h1>
+        <div className="mb-3">
+          <Timer />
+        </div>
       </main>
     </>
   )

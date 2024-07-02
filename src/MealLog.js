@@ -4,17 +4,18 @@ import Form from "./Form"
 import React, { useState, useEffect } from "react"
 import Table from "./Table"
 
-function FoodLog() {
+function MealLog() {
   const [allMeals, setAllMeals] = useState([])
-  const [fetchTrigger, setFetchTrigger] = useState(false)
 
-  const toggleFetchTrigger = () => setFetchTrigger(!fetchTrigger)
-
-  useEffect(() => {
+  const fetchMeals = () => {
     fetch("http://localhost:3000/meals")
       .then((response) => response.json())
       .then((data) => setAllMeals(data))
-  }, [fetchTrigger])
+  }
+
+  useEffect(() => {
+    fetchMeals()
+  }, [])
 
   return (
     <>
@@ -22,8 +23,8 @@ function FoodLog() {
         <NavBar />
       </header>
       <div className="container">
-        <h1>Food Log</h1>
-        <Form fetchTrigger={toggleFetchTrigger} />
+        <h1>Meal Log</h1>
+        <Form fetchMeals={fetchMeals} />
         <br></br>
         <Table allMeals={allMeals} />
       </div>
@@ -31,4 +32,4 @@ function FoodLog() {
   )
 }
 
-export default FoodLog
+export default MealLog
