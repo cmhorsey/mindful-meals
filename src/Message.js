@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 
 function Message({ seconds, handleStopTimer, message, setMessage }) {
   // Hour 0-4: Postprandial Phase seconds 1-14,400
@@ -9,15 +9,15 @@ function Message({ seconds, handleStopTimer, message, setMessage }) {
   useEffect(() => {
     function handleTimerPhase() {
       if (seconds >= 1 && seconds < 5) {
-        setMessage("Phase 1 - Postprandial Phase ")
+        setMessage(" Phase 1 - Postprandial Phase ")
       } else if (seconds >= 5 && seconds < 10) {
-        setMessage("Phase 2 - Early Fasting Phase")
+        setMessage(" Phase 2 - Early Fasting Phase ")
       } else if (seconds >= 10 && seconds < 15) {
-        setMessage("Phase 3 - Glycogen Utilization Phase")
+        setMessage(" Phase 3 - Glycogen Utilization Phase ")
       } else if (seconds >= 15 && seconds < 20) {
-        setMessage("Phase 4 - Fat-Burning Phase")
+        setMessage(" Phase 4 - Fat-Burning Phase ")
       } else if (seconds === 20) {
-        setMessage("Fast Complete")
+        setMessage(" Fast Complete ")
         handleStopTimer()
       }
     }
@@ -25,9 +25,9 @@ function Message({ seconds, handleStopTimer, message, setMessage }) {
   }, [seconds])
 
   return (
-    <div>
-      <span>
-        <h3>{message}</h3>
+    <div className="d-flex justify-content-center mt-4">
+      <span className=" bg-secondary text-light rounded">
+        <h3 className="m-0">{message}</h3>
       </span>
     </div>
   )

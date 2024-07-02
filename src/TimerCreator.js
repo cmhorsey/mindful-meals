@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react"
-
 function TimeCreator({ seconds, setSeconds, timerID, setTimerID, setMessage }) {
   const tick = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
@@ -31,14 +29,15 @@ function TimeCreator({ seconds, setSeconds, timerID, setTimerID, setMessage }) {
   }
 
   return (
-    <div className="d-flex justify-content-center">
-      <h1>{formatTime()}</h1>
-      <div className="mb-3 p-2">
-        <button onClick={handleStartTimer}>Start Fast</button>
-      </div>
-
-      <div className="mb-3 p-2">
-        <button onClick={handleStopTimer}>End Fast</button>
+    <div className="d-flex flex-column align-items-center">
+      <h1 className="mb-4">{formatTime()}</h1>
+      <div className="mb-3">
+        <button className="btn btn-secondary me-2" onClick={handleStartTimer}>
+          Start Fast
+        </button>
+        <button className="btn btn-secondary" onClick={handleStopTimer}>
+          End Fast
+        </button>
       </div>
     </div>
   )
