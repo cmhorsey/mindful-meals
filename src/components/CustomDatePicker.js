@@ -2,7 +2,7 @@ import React from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 
-function CustomDatePicker({ selectedDate, handleDateChange }) {
+function CustomDatePicker({ selectedDate, onHandleDateChange }) {
   return (
     <div className="mb-3">
       <label htmlFor="date" className="form-label">
@@ -10,7 +10,7 @@ function CustomDatePicker({ selectedDate, handleDateChange }) {
       </label>
       <DatePicker
         selected={selectedDate}
-        onChange={handleDateChange}
+        onChange={onHandleDateChange}
         className="form-control"
         dateFormat="MM/dd/yyyy"
       />
