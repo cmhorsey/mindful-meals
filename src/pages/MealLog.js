@@ -14,20 +14,13 @@ const initialFormState = {
 function MealLog() {
   const [allMeals, setAllMeals] = useState([])
   const [formData, setFormData] = useState(initialFormState)
-  const [newFood, setNewFood] = useState([])
 
-  const fetchMeals = () => {
-    getMeals().then((data) => {
-      const sortedData = data.sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      )
-      setAllMeals(sortedData)
-    })
+  const sortData = (data) => {
+    const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date))
+    setAllMeals(sortedData)
   }
 
-  useEffect(() => {
-    fetchMeals()
-  }, [])
+  const fetchMeals = () => getMeals().then(sortData)
 
   const handleFormChange = (event) => {
     setFormData({
@@ -47,30 +40,31 @@ function MealLog() {
 
     fetchNutritionData(query).then((data) => {
       const extractedData = data.items.map((item) => ({
-        name: item.name,
         calories: item.calories,
         carbohydrates: item.carbohydrates_total_g,
       }))
-      setNewFood(extractedData)
       handlePost(extractedData)
     })
   }
 
-  const handlePost = (extractedData) => {
-    const totalCalories = extractedData.reduce(
-      (sum, item) => sum + item.calories,
-      0
-    )
-    const totalCarbs = extractedData.reduce(
-      (sum, item) => sum + item.carbohydrates,
-      0
-    )
+  const totalCalories = (data) => {
+    const calories = data.reduce((sum, item) => sum + item.calories, 0)
 
+    return Math.floor(calories * 4)
+  }
+
+  const totalCarbs = (data) => {
+    const carbs = data.reduce((sum, item) => sum + item.carbohydrates, 0)
+
+    return Math.floor(carbs * 4)
+  }
+
+  const handlePost = (data) => {
     const mealData = {
       date: formData.date.toLocaleDateString(),
       food: [formData.breakfast, formData.lunch, formData.dinner],
-      calories: Math.floor(totalCalories * 4),
-      carbs: Math.floor(totalCarbs * 4),
+      calories: totalCalories(data),
+      carbs: totalCarbs(data),
     }
 
     postMealData(mealData).then(() => {
@@ -78,6 +72,10 @@ function MealLog() {
       setFormData(initialFormState)
     })
   }
+
+  useEffect(() => {
+    fetchMeals()
+  }, [])
 
   return (
     <>
@@ -90,7 +88,7 @@ function MealLog() {
           formData={formData}
           onFormChange={handleFormChange}
           onHandleDateChange={handleDateChange}
-          onHandleSubmit={handleSubmit}
+          onSubmitForm={handleSubmit}
         />
         <br />
         <Table allMeals={allMeals} />

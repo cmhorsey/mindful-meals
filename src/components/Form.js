@@ -2,9 +2,9 @@ import React from "react"
 import CustomDatePicker from "./CustomDatePicker"
 import "../styles/index.css"
 
-function Form({ formData, onFormChange, onHandleDateChange, onHandleSubmit }) {
+function Form({ formData, onFormChange, onHandleDateChange, onSubmitForm }) {
   return (
-    <form onSubmit={onHandleSubmit} className="container form-container">
+    <form onSubmit={onSubmitForm} className="container form-container">
       <h2 className="form-header">Add Meals</h2>
       <CustomDatePicker
         selectedDate={formData.date}
