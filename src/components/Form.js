@@ -74,7 +74,10 @@ function Form({ fetchMeals }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(mealData),
-    }).then(fetchMeals)
+    }).then(() => {
+      fetchMeals()
+      setFormData(initialValue)
+    })
   }
 
   return (
