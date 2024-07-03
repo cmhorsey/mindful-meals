@@ -9,7 +9,12 @@ function MealLog() {
   const fetchMeals = () => {
     fetch("http://localhost:3000/meals")
       .then((response) => response.json())
-      .then((data) => setAllMeals(data))
+      .then((data) => {
+        const sortedData = data.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        )
+        setAllMeals(sortedData)
+      })
   }
 
   useEffect(() => {
