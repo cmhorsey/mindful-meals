@@ -2,19 +2,18 @@ import NavBar from "./NavBar"
 import Form from "./Form"
 import React, { useState, useEffect } from "react"
 import Table from "./Table"
+import { getMeals } from "../utilities/api"
 
 function MealLog() {
   const [allMeals, setAllMeals] = useState([])
 
   const fetchMeals = () => {
-    fetch("http://localhost:3000/meals")
-      .then((response) => response.json())
-      .then((data) => {
-        const sortedData = data.sort(
-          (a, b) => new Date(b.date) - new Date(a.date)
-        )
-        setAllMeals(sortedData)
-      })
+    getMeals().then((data) => {
+      const sortedData = data.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      )
+      setAllMeals(sortedData)
+    })
   }
 
   useEffect(() => {

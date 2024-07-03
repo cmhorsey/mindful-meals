@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import CustomDatePicker from "./CustomDatePicker"
+import { fetchNutritionData, postMealData } from "../utilities/api"
 import "../styles/index.css"
 
 const initialValue = {
@@ -18,7 +19,7 @@ function Form({ fetchMeals }) {
   const dinner = formData.dinner
   const query = `${breakfast} ${lunch} ${dinner}`
 
-  function handleChange(event) {
+  function handleFormChange(event) {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
@@ -32,23 +33,15 @@ function Form({ fetchMeals }) {
   function handleSubmit(event) {
     event.preventDefault()
 
-    fetch("https://api.calorieninjas.com/v1/nutrition?query=" + query, {
-      method: "GET",
-      headers: {
-        "X-Api-Key": "jrQyEj+ffbtZSdfVrr8HJQ==V3J3FdNbQrPL65DI",
-        "Content-Type": "application/json",
-      },
+    fetchNutritionData(query).then((data) => {
+      const extractedData = data.items.map((item) => ({
+        name: item.name,
+        calories: item.calories,
+        carbohydrates: item.carbohydrates_total_g,
+      }))
+      setNewFood(extractedData)
+      handlePost(extractedData)
     })
-      .then((response) => response.json())
-      .then((data) => {
-        const extractedData = data.items.map((item) => ({
-          name: item.name,
-          calories: item.calories,
-          carbohydrates: item.carbohydrates_total_g,
-        }))
-        setNewFood(extractedData)
-        handlePost(extractedData)
-      })
   }
 
   function handlePost(extractedData) {
@@ -68,15 +61,9 @@ function Form({ fetchMeals }) {
       carbs: Math.floor(totalCarbs * 4),
     }
 
-    fetch("http://localhost:3000/meals", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(mealData),
-    }).then(() => {
+    postMealData(mealData).then(() => {
       fetchMeals()
-      setFormData(initialValue)
+      setFormData(initialValue) // Reset form after successful submission
     })
   }
 
@@ -97,7 +84,7 @@ function Form({ fetchMeals }) {
           id="breakfast"
           name="breakfast"
           value={formData.breakfast}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="What did you have for breakfast?"
         />
       </div>
@@ -111,7 +98,7 @@ function Form({ fetchMeals }) {
           id="lunch"
           name="lunch"
           value={formData.lunch}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="What did you have for lunch?"
         />
       </div>
@@ -125,7 +112,7 @@ function Form({ fetchMeals }) {
           id="dinner"
           name="dinner"
           value={formData.dinner}
-          onChange={handleChange}
+          onChange={handleFormChange}
           placeholder="What did you have for dinner?"
         />
       </div>
