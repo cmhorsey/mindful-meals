@@ -1,4 +1,4 @@
-function TimeCreator({
+function TimerCreator({
   seconds,
   setSeconds,
   timerID,
@@ -40,4 +40,4 @@ function TimeCreator({
   )
 }
 
-export default TimeCreator
+export default TimerCreator

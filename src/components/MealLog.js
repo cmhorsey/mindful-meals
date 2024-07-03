@@ -1,6 +1,5 @@
 import NavBar from "./NavBar"
 import Form from "./Form"
-
 import React, { useState, useEffect } from "react"
 import Table from "./Table"
 
@@ -25,7 +24,7 @@ function MealLog() {
       <div className="container">
         <h1>Meal Log</h1>
         <Form fetchMeals={fetchMeals} />
-        <br></br>
+        <br />
         <Table allMeals={allMeals} />
       </div>
     </>

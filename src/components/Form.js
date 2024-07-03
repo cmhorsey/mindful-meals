@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import CustomDatePicker from "./CustomDatePicker"
-import "./index.css"
+import "../styles/index.css"
 
 const initialValue = {
   date: new Date(),

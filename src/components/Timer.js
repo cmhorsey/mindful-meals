@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Message from "./Message"
-import TimeCreator from "./TimerCreator"
+import TimerCreator from "./TimerCreator"
 import DigestionSummary from "./DigestionSummary"
 
 function Timer() {
@@ -19,7 +19,7 @@ function Timer() {
 
   return (
     <div>
-      <TimeCreator
+      <TimerCreator
         seconds={seconds}
         setSeconds={setSeconds}
         timerID={timerID}
