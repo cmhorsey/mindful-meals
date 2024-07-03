@@ -1,7 +1,7 @@
-import NavBar from "./NavBar"
-import Form from "./Form"
+import NavBar from "../components/NavBar"
+import Form from "../components/Form"
 import React, { useState, useEffect } from "react"
-import Table from "./Table"
+import Table from "../components/Table"
 import { getMeals, fetchNutritionData, postMealData } from "../utilities/api"
 
 const initialFormState = {

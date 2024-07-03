@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 
-function Message({ seconds, handleStopTimer, message, setMessage }) {
+function Message({ seconds, onStopTimer, message, setMessage }) {
   useEffect(() => {
     function handleTimerPhase() {
       if (seconds >= 1 && seconds < 5) {
@@ -12,7 +12,7 @@ function Message({ seconds, handleStopTimer, message, setMessage }) {
       } else if (seconds >= 15 && seconds < 20) {
         setMessage(" You are currently in Phase 4 ")
       } else if (seconds === 20) {
-        handleStopTimer()
+        onStopTimer()
       }
     }
     handleTimerPhase()

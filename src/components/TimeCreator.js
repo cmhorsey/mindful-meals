@@ -3,7 +3,7 @@ function TimerCreator({
   setSeconds,
   timerID,
   setTimerID,
-  handleStopTimer,
+  onStopTimer,
 }) {
   const tick = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
@@ -32,7 +32,7 @@ function TimerCreator({
         <button className="btn btn-secondary me-2" onClick={handleStartTimer}>
           Start Fast
         </button>
-        <button className="btn btn-secondary" onClick={handleStopTimer}>
+        <button className="btn btn-secondary" onClick={onStopTimer}>
           End Fast
         </button>
       </div>

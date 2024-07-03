@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Message from "./Message"
-import TimerCreator from "./TimerCreator"
+import TimerCreator from "./TimeCreator"
 import DigestionSummary from "./DigestionSummary"
 
 function Timer() {
@@ -25,11 +25,11 @@ function Timer() {
         timerID={timerID}
         setTimerID={setTimerID}
         setMessage={setMessage}
-        handleStopTimer={handleStopTimer}
+        onStopTimer={handleStopTimer}
       />
       <Message
         seconds={seconds}
-        handleStopTimer={handleStopTimer}
+        onStopTimer={handleStopTimer}
         message={message}
         setMessage={setMessage}
       />
