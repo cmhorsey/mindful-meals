@@ -5,7 +5,7 @@ MindfulMeals is a React-based web application designed to help users log their m
 ## Features
 
 - **Meal Logging**: Track your daily meals and gain insights into the nutritional content.
-- **Fasting Tracker**: Start and manage your fasting periods, and get updates on your metabolic phase.
+- **Fasting Tracker**: Start and manage your fasting periods, and get updates on your metabolic phase. - Please note for demonstration purposes the fasting tracker will cylcle through all 4 phases in 20seconds.
 - **Detailed Nutritional Info**: Get detailed information on calories and carbs for each meal.
 
 ## Technologies Used
