@@ -5,14 +5,14 @@ function LogEntry({ meal }) {
       <th scope="row">{date}</th>
       <td>
         Breakfast : {food[0]}
-        <br></br>
+        <br />
         Lunch : {food[1]}
-        <br></br>
+        <br />
         Dinner : {food[2]}
       </td>
       <td>
         Calories: {calories}
-        <br></br>
+        <br />
         Carbs: {carbs}
       </td>
       <td></td>

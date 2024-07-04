@@ -1,37 +1,41 @@
-# Fast and Food Tracking
+# mindfulMeals
 
-## The basic story of your application
+MindfulMeals is a React-based web application designed to help users log their meals, track nutritional information, and monitor fasting progress. The app provides detailed information on calories and carbohydrates for meals and helps users optimize their fasting routines.
 
-Allows users to log their intermittent fasting as well as daily meals.
+## Features
 
-## The core features of your MVP
+- **Meal Logging**: Track your daily meals and gain insights into the nutritional content.
+- **Fasting Tracker**: Start and manage your fasting periods, and get updates on your metabolic phase.
+- **Detailed Nutritional Info**: Get detailed information on calories and carbs for each meal.
 
-- Users can log their meals with accurate nutritional information from CalorieNinja API.
-- Users can track the progress of their fast and see the metabolic phase they’re currently in.
+## Technologies Used
 
-## The API data you'll be using and how you'll use it
+- React
+- React Router
+- Bootstrap
+- React Datepicker
+- Fetch API
 
-I will be using the CalorieNinja API to allow users to accurately log their calorie and net carb intake.
+## Installation
 
-## Challenges you expect to face
+To run this project locally, follow these steps:
 
-## How you are meeting the requirements of the project
+1. **Clone the repository:**
 
-- **MIN 5 COMPONENTS:**
-  - App
-  - Nav
-  - About
-  - Form
-  - Log
-  - Timer
-- **3 CLIENT SIDE ROUTES:**
-  - /about
-  - /foodlog
-  - /fastlog
-- **GET and POST:**
-  - GET request to get nutritional info from API
-  - POST request to log user data on page
+`git clone git@github.com:cmhorsey/mindful-meals.git`
 
-## MVP
+2. **Install the dependencies:**
 
-Food logging application that communicates with an API and allows users to track their meals.
+`$npm install`
+
+3. **If you haven't yet, install json-server:**
+
+`$npm install -g json-server`
+
+**Then run the server with:**
+
+`$json-server --watch db.json`
+
+4.  **Start the server:**
+
+`npm start`
