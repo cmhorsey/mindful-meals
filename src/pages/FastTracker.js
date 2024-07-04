@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar"
-import Timer from "../components/Timer"
+import Timer from "../components/fast-tracker/Timer"
 
 function FastTracker() {
   return (

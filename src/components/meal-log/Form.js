@@ -1,6 +1,6 @@
 import React from "react"
-import CustomDatePicker from "./CustomDatePicker"
-import "../styles/index.css"
+import CustomDatePicker from "../CustomDatePicker"
+import "../../styles/index.css"
 
 function Form({ formData, onFormChange, onHandleDateChange, onSubmitForm }) {
   return (
