@@ -58,6 +58,7 @@ function MealLog() {
 
     return Math.floor(carbs * 4)
   }
+
   const sanitizeMealData = (data) => {
     return {
       date: formData.date.toLocaleDateString(),
