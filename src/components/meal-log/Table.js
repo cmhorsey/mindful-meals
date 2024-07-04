@@ -8,7 +8,6 @@ function Table({ allMeals }) {
           <th scope="col">date</th>
           <th scope="col">meals</th>
           <th scope="col">nutritional info</th>
-          <th scope="col">notes</th>
         </tr>
       </thead>
       <tbody>
