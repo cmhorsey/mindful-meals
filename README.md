@@ -34,7 +34,7 @@ To run this project locally, follow these steps:
 
 **Then run the server with:**
 
-`$json-server --watch db.json -p 3001`
+`$json-server --watch db.json`
 
 4.  **Start the server:**
 
