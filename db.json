@@ -1,3 +1,26 @@
 {
-  "meals": []
+  "meals": [
+    {
+      "id": "7681",
+      "date": "7/5/2024",
+      "food": [
+        "Eggs",
+        "Sandwich",
+        "Steak"
+      ],
+      "calories": 1499,
+      "carbs": 48
+    },
+    {
+      "id": "fb96",
+      "date": "7/5/2024",
+      "food": [
+        "Parfait",
+        "Ramen",
+        "Chocolate Cake"
+      ],
+      "calories": 2245,
+      "carbs": 311
+    }
+  ]
 }
