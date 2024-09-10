@@ -1,6 +1,13 @@
 import React, { useEffect } from "react"
 
-function Message({ seconds, onStopTimer, message, setMessage }) {
+interface MessageProps {
+  seconds: number
+  onStopTimer: () => void
+  message: string
+  setMessage: React.Dispatch<React.SetStateAction<string>>
+}
+
+function Message({ seconds, onStopTimer, message, setMessage }: MessageProps) {
   useEffect(() => {
     function handleTimerPhase() {
       if (seconds >= 1 && seconds < 5) {

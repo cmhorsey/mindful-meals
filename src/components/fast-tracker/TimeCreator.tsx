@@ -1,10 +1,21 @@
+interface TimerProps {
+  seconds: number
+  timerID: ReturnType<typeof setInterval> | null
+  onStopTimer: () => void
+  message: string
+  setSeconds: React.Dispatch<React.SetStateAction<number>>
+  setTimerID: React.Dispatch<
+    React.SetStateAction<ReturnType<typeof setInterval> | null>
+  >
+}
+
 function TimerCreator({
   seconds,
   setSeconds,
   timerID,
   setTimerID,
   onStopTimer,
-}) {
+}: TimerProps) {
   const tick = () => {
     setSeconds((prevSeconds) => prevSeconds + 1)
   }
