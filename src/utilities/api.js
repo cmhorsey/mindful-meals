@@ -25,3 +25,9 @@ export const getMeals = () => {
     response.json()
   )
 }
+
+export const deleteMealData = (id) => {
+  return fetch(`http://localhost:3000/meals/${id}`, {
+    method: "DELETE",
+  })
+}
