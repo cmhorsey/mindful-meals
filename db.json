@@ -1,17 +1,6 @@
 {
   "meals": [
     {
-      "id": "1ee1",
-      "date": "7/5/2024",
-      "food": [
-        "Granola",
-        "caprese salad",
-        "Chocolate Cake"
-      ],
-      "calories": 4112,
-      "carbs": 439
-    },
-    {
       "id": "9fea",
       "date": "9/10/2024",
       "food": [
@@ -21,6 +10,17 @@
       ],
       "calories": 2022,
       "carbs": 42
+    },
+    {
+      "id": "a2f9",
+      "date": "9/13/2024",
+      "food": [
+        "Parfait",
+        "Salad",
+        "Steak"
+      ],
+      "calories": 1514,
+      "carbs": 81
     }
   ]
 }
