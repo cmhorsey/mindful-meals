@@ -24,7 +24,7 @@ function Form({ onSubmitForm }: FormProps) {
   })
 
   const { register, control, handleSubmit, formState, reset } = form
-  const { errors, isSubmitSuccessful } = formState
+  const { errors, isSubmitSuccessful, isValid } = formState
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     onSubmitForm(data)
@@ -118,7 +118,11 @@ function Form({ onSubmitForm }: FormProps) {
           <p className="error">{errors.dinner?.message} </p>
         </div>
 
-        <button type="submit" className="btn btn-secondary btn-submit">
+        <button
+          type="submit"
+          className="btn btn-secondary btn-submit"
+          disabled={!isValid}
+        >
           Submit
         </button>
       </form>
