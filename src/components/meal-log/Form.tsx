@@ -1,5 +1,4 @@
 import React from "react"
-import CustomDatePicker from "../CustomDatePicker"
 import "../../styles/index.css"
 import { useForm } from "react-hook-form"
 import { DevTool } from "@hookform/devtools"
@@ -62,7 +61,7 @@ function Form({}): FormProps {
           />
         </div>
 
-        {/* <div className="mb-3">
+        <div className="mb-3">
           <label htmlFor="breakfast" className="form-label">
             Breakfast
           </label>
@@ -70,11 +69,12 @@ function Form({}): FormProps {
             type="text"
             className="form-control"
             id="breakfast"
-            name="breakfast"
             placeholder="What did you have for breakfast?"
+            {...register("breakfast")}
           />
         </div>
 
+        {/*
         <div className="mb-3">
           <label htmlFor="lunch" className="form-label">
             Lunch
