@@ -53,17 +53,14 @@ function MealLog() {
     return Math.floor(carbs * 4)
   }
 
-  const sanitizeMealData = (data, formData) => {
-    return {
+  const handlePost = (data, formData) => {
+    const mealData = {
       date: formData.date.toLocaleDateString(),
       food: [formData.breakfast, formData.lunch, formData.dinner],
       calories: totalCalories(data),
       carbs: totalCarbs(data),
     }
-  }
 
-  const handlePost = (data, formData) => {
-    const mealData = sanitizeMealData(data, formData)
     postMealData(mealData).then(() => {
       fetchMeals()
     })
