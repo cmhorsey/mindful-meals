@@ -63,8 +63,14 @@ function Form({ onSubmitForm }: FormProps) {
             className="form-control"
             id="breakfast"
             placeholder="What did you have for breakfast?"
-            {...register("breakfast")}
+            {...register("breakfast", {
+              required: {
+                value: true,
+                message: "Please enter your breakfast",
+              },
+            })}
           />
+          <p className="error">{errors.breakfast?.message} </p>
         </div>
 
         <div className="mb-3">
@@ -76,8 +82,14 @@ function Form({ onSubmitForm }: FormProps) {
             className="form-control"
             id="lunch"
             placeholder="What did you have for lunch?"
-            {...register("lunch")}
-          />
+            {...register("lunch", {
+              required: {
+                value: true,
+                message: "Please enter your lunch",
+              },
+            })}
+          />{" "}
+          <p className="error">{errors.lunch?.message} </p>
         </div>
 
         <div className="mb-3">
@@ -89,8 +101,14 @@ function Form({ onSubmitForm }: FormProps) {
             className="form-control"
             id="dinner"
             placeholder="What did you have for dinner?"
-            {...register("dinner")}
+            {...register("dinner", {
+              required: {
+                value: true,
+                message: "Please enter your dinner",
+              },
+            })}
           />
+          <p className="error">{errors.dinner?.message} </p>
         </div>
 
         <button type="submit" className="btn btn-secondary btn-submit">
