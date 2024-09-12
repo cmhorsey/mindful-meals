@@ -5,7 +5,7 @@ import DigestionSummary from "./DigestionSummary"
 
 function Timer() {
   const [seconds, setSeconds] = useState<number>(0)
-  const [message, setMessage] = useState<string>("Timer is running")
+  const [message, setMessage] = useState<string>("")
   const [timerID, setTimerID] = useState<ReturnType<typeof setInterval> | null>(
     null
   )
