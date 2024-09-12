@@ -1,4 +1,5 @@
 import React from "react"
+import { useEffect } from "react"
 import "../../styles/index.css"
 import { useForm, SubmitHandler, FieldErrors } from "react-hook-form"
 import { DevTool } from "@hookform/devtools"
@@ -22,8 +23,8 @@ function Form({ onSubmitForm }: FormProps) {
     mode: "onBlur",
   })
 
-  const { register, control, handleSubmit, formState } = form
-  const { errors } = formState
+  const { register, control, handleSubmit, formState, reset } = form
+  const { errors, isSubmitSuccessful } = formState
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     onSubmitForm(data)
@@ -32,6 +33,12 @@ function Form({ onSubmitForm }: FormProps) {
   const onError = (errors: FieldErrors<FormValues>) => {
     console.log("Form errors", errors)
   }
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   return (
     <div>
