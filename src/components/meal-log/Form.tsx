@@ -74,7 +74,6 @@ function Form({}): FormProps {
           />
         </div>
 
-        {/*
         <div className="mb-3">
           <label htmlFor="lunch" className="form-label">
             Lunch
@@ -83,8 +82,8 @@ function Form({}): FormProps {
             type="text"
             className="form-control"
             id="lunch"
-            name="lunch"
             placeholder="What did you have for lunch?"
+            {...register("lunch")}
           />
         </div>
 
@@ -96,10 +95,10 @@ function Form({}): FormProps {
             type="text"
             className="form-control"
             id="dinner"
-            name="dinner"
             placeholder="What did you have for dinner?"
+            {...register("dinner")}
           />
-        </div> */}
+        </div>
 
         <button type="submit" className="btn btn-secondary btn-submit">
           Submit
