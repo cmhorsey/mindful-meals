@@ -1,13 +1,10 @@
 import React from "react"
 import "../../styles/index.css"
-import { useForm } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 import { DevTool } from "@hookform/devtools"
 
 interface FormProps {
-  // formData: FormData
-  // onHandleDateChange: () => void
-  // onSubmitForm: (values: FormValues) => void
-  // onFormChange: () => void
+  onSubmitForm: (data: FormValues) => void
 }
 
 type FormValues = {
@@ -17,7 +14,7 @@ type FormValues = {
   dinner: string
 }
 
-function Form({}): FormProps {
+function Form({ onSubmitForm }: FormProps) {
   const form = useForm<FormValues>({
     defaultValues: {
       date: new Date(),
@@ -25,21 +22,10 @@ function Form({}): FormProps {
     mode: "onBlur",
   })
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState,
-    watch,
-    getValues,
-    setValue,
-    reset,
-    trigger,
-  } = form
-  const {} = formState
+  const { register, control, handleSubmit } = form
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Form Submitted", data)
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    onSubmitForm(data)
   }
 
   return (
