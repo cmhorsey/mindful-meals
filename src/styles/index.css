@@ -37,3 +37,8 @@ code {
 .btn-submit {
   width: 100%;
 }
+
+.error {
+  color: red;
+  font-size: 1;
+}

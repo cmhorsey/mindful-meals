@@ -1,6 +1,6 @@
 import React from "react"
 import "../../styles/index.css"
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, FieldErrors } from "react-hook-form"
 import { DevTool } from "@hookform/devtools"
 
 interface FormProps {
@@ -22,17 +22,22 @@ function Form({ onSubmitForm }: FormProps) {
     mode: "onBlur",
   })
 
-  const { register, control, handleSubmit } = form
+  const { register, control, handleSubmit, formState } = form
+  const { errors } = formState
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     onSubmitForm(data)
+  }
+
+  const onError = (errors: FieldErrors<FormValues>) => {
+    console.log("Form errors", errors)
   }
 
   return (
     <div>
       <form
         className="container form-container"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onError)}
       >
         <h2 className="form-header">Add Meals</h2>
 
@@ -43,8 +48,10 @@ function Form({ onSubmitForm }: FormProps) {
             id="date"
             {...register("date", {
               valueAsDate: true,
+              required: "Date is required",
             })}
           />
+          <p className="error">{errors.date?.message} </p>
         </div>
 
         <div className="mb-3">
