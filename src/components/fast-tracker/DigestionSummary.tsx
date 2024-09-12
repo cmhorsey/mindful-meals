@@ -1,4 +1,6 @@
-function DigestionSummary() {
+import React from "react"
+
+const DigestionSummary: React.FC = () => {
   return (
     <div className="bg-light text-dark p-3 rounded">
       <h4 className="mb-3">Summary of Changes:</h4>

@@ -1,5 +1,5 @@
-function LogEntry({ meal }) {
-  const { food, calories, carbs, date } = meal
+function LogEntry({ meal, onDelete }) {
+  const { food, calories, carbs, date, id } = meal
   return (
     <tr>
       <th scope="row">{date}</th>
@@ -15,7 +15,9 @@ function LogEntry({ meal }) {
         <br />
         Carbs: {carbs}
       </td>
-      <td></td>
+      <td>
+        <button onClick={() => onDelete(id)}>Delete</button>
+      </td>
     </tr>
   )
 }

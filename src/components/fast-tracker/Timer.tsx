@@ -4,10 +4,11 @@ import TimerCreator from "./TimeCreator"
 import DigestionSummary from "./DigestionSummary"
 
 function Timer() {
-  const [seconds, setSeconds] = useState(0)
-  const [message, setMessage] = useState("")
-  const [timerID, setTimerID] = useState(null)
-
+  const [seconds, setSeconds] = useState<number>(0)
+  const [message, setMessage] = useState<string>("Timer is running")
+  const [timerID, setTimerID] = useState<ReturnType<typeof setInterval> | null>(
+    null
+  )
   const handleStopTimer = () => {
     if (timerID) {
       clearInterval(timerID)
@@ -24,7 +25,7 @@ function Timer() {
         setSeconds={setSeconds}
         timerID={timerID}
         setTimerID={setTimerID}
-        setMessage={setMessage}
+        message={message}
         onStopTimer={handleStopTimer}
       />
       <Message

@@ -2,7 +2,26 @@ import React from "react"
 import CustomDatePicker from "../CustomDatePicker"
 import "../../styles/index.css"
 
-function Form({ formData, onFormChange, onHandleDateChange, onSubmitForm }) {
+interface FormProps {
+  formData: FormData
+  onHandleDateChange: () => void
+  onSubmitForm: () => void
+  onFormChange: () => void
+}
+
+interface FormData {
+  date: Date
+  breakfast: string
+  lunch: string
+  dinner: string
+}
+
+function Form({
+  formData,
+  onFormChange,
+  onHandleDateChange,
+  onSubmitForm,
+}: FormProps) {
   return (
     <form onSubmit={onSubmitForm} className="container form-container">
       <h2 className="form-header">Add Meals</h2>

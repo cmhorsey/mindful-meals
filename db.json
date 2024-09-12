@@ -1,3 +1,26 @@
 {
-  "meals": []
+  "meals": [
+    {
+      "id": "1ee1",
+      "date": "7/5/2024",
+      "food": [
+        "Granola",
+        "caprese salad",
+        "Chocolate Cake"
+      ],
+      "calories": 4112,
+      "carbs": 439
+    },
+    {
+      "id": "9fea",
+      "date": "9/10/2024",
+      "food": [
+        "Eggs",
+        "Ramen",
+        "Steak"
+      ],
+      "calories": 2022,
+      "carbs": 42
+    }
+  ]
 }

@@ -2,7 +2,12 @@ import NavBar from "../components/NavBar"
 import Form from "../components/meal-log/Form"
 import React, { useState, useEffect } from "react"
 import Table from "../components/meal-log/Table"
-import { getMeals, fetchNutritionData, postMealData } from "../utilities/api"
+import {
+  getMeals,
+  fetchNutritionData,
+  postMealData,
+  deleteMealData,
+} from "../utilities/api"
 
 const initialFormState = {
   date: new Date(),
@@ -21,6 +26,10 @@ function MealLog() {
   }
 
   const fetchMeals = () => getMeals().then(sortData)
+
+  const handleDelete = (id) => {
+    deleteMealData(id).then(() => fetchMeals())
+  }
 
   const handleFormChange = (event) => {
     setFormData({
@@ -95,7 +104,7 @@ function MealLog() {
           onSubmitForm={handleSubmit}
         />
         <br />
-        <Table allMeals={allMeals} />
+        <Table allMeals={allMeals} onDelete={handleDelete} />
       </div>
     </>
   )
