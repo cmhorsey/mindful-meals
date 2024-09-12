@@ -9,13 +9,6 @@ import {
   deleteMealData,
 } from "../utilities/api"
 
-const initialFormState = {
-  date: new Date(),
-  breakfast: "",
-  lunch: "",
-  dinner: "",
-}
-
 function MealLog() {
   const [allMeals, setAllMeals] = useState([])
 
